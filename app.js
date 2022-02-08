@@ -1,3 +1,5 @@
+const ferData = require("./fer.json")
+
 const express = require("express");
 
 require("dotenv").config();
@@ -20,10 +22,8 @@ res.render("about")
 );
 
 app.get("/", (req, res, next) =>
-res.render("index", {
-    name: "Fer",
-    hobbies: ["coding", "more coding", "extra coding"],
-}));
+//if you need specific format for the data prepare it outside of the render and then render it
+res.render("index", ferData));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log("🏃‍ on port 3000"));
